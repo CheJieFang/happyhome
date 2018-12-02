@@ -1,0 +1,58 @@
+@import './vartital.scss';
+.searchBox{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    width: w(375);
+    height: h(42);
+    line-height:lh(42);
+    background: #fff;
+    box-sizing: border-box;
+    padding: 10px,15px,10px,15px;
+    z-index: 999;
+    .leftBox{
+        flex: 1;
+        height: 100%;
+         line-height:lh(42);
+        select{
+            border: none;
+            margin-left: left(15);
+            font-size: fs(12);
+        }
+    }
+    .rightBox{
+        flex: 5;
+        margin-left: left(15);
+        height: 100%;
+        line-height:lh(42);
+         a{
+            display: block;
+            height: 100%;
+             line-height:lh(42);
+         }
+         .searchInput{
+            background: #fff;
+            position: relative;
+            img{
+                position: absolute;
+                left: left(12);
+                top: top(12);
+                width: w(18);
+                height: h(18);
+            }
+             input{
+                height:h(30);
+                width: w(280);
+                border-radius: 5px;
+                background: #f0f0f0;
+                border: none;
+                padding-left: left(40);
+                box-sizing: border-box;
+                font-size: fs(12);
+             }
+         }
+    }
+}

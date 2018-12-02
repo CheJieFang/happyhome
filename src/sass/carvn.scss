@@ -1,0 +1,32 @@
+@import './vartital.scss';
+.carvnBox{
+    margin-top: top(10);
+    padding-left: left(15);
+    padding-right: right(15);
+    width: w(375);
+    height: h(25);
+    box-sizing: border-box;
+    .toutiao{
+        position: relative;
+        width: w(345);
+        height: h(25);
+        line-height: lh(25);
+        line-height: lh(25);
+        background: #fff7ef;
+        border-radius: 5px;
+        padding-left: left(79);
+        box-sizing: border-box;
+        img{
+            position: absolute;
+            left: left(0);
+            top: top(0);
+            width: w(85);
+            height: h(25);
+        }
+        .v-item{
+            font-size: fs(12);
+            color: #333;
+            overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+        }
+    }
+}

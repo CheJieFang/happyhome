@@ -1,23 +1,31 @@
+@import './vartital.scss';
 body,html{
     height:100%;
    #app{
        height: 100%;
+       background: #fff;
        .box{
            position: relative;
-           height: 100%;
            .am-tab-bar{
-               height: 62px;
-               position: absolute;
+               height: h(62);
+               position: fixed;
                left: 0;
                right: 0;
                bottom: 0;
                .am-tab-bar-bar{
                    height: 100%;
                    background: #fff;
+                   p{
+                       font-size: fs(12);
+                   }
+                   .am-tab-bar-tab-icon{
+                       width: w(21);
+                       height: h(16);
+                   }
                    .am-tab-bar-tab{
-                        height: 62px;
+                         height: h(62);
                         background: #fff;
-                        font-size: 18px;
+                        font-size: fs(18);
                         
                    }
                }

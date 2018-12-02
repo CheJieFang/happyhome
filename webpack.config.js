@@ -20,10 +20,10 @@ module.exports = {
       port: 9000, //端口改为9000
       open:true, // 自动打开浏览器，适合懒
       proxy:{
-      	'/api':{
-      		target:"https://m.yuansuju.com",
-      		changeOrigin:true
-      	}
+      	"/api": {
+			"target": "http://weixin.xfj100.com",
+			"changeOrigin": true
+		}
       }
     },
 	module:{
