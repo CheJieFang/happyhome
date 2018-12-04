@@ -20,10 +20,25 @@ module.exports = {
       port: 9000, //端口改为9000
       open:true, // 自动打开浏览器，适合懒
       proxy:{
+      	"/app": {
+			"target": "http://2018.ip138.com",
+			"changeOrigin": true,
+			"pathRewrite":{
+				"^/app":"/"
+			}
+		},
+			"/city": {
+			"target": "http://ip.taobao.com",
+			"changeOrigin": true,
+			"pathRewrite":{
+				"^/city":"/"
+			}
+		},
       	"/api": {
 			"target": "http://weixin.xfj100.com",
 			"changeOrigin": true
 		}
+		
       }
     },
 	module:{
@@ -40,7 +55,7 @@ module.exports = {
 					{
 						loader:'babel-loader',
 						options:{
-							presets:['env','react']
+							presets:['env','react','stage-0']
 						}
 					}
 				]

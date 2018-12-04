@@ -1,9 +1,17 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
 import {Route,Switch,withRouter} from 'react-router-dom';
 import Home from './Home';
 import Enjoy from './Enjoy';
 import Loan from './Loan';
 import Mine from './Mine';
+import Keyword from './search/keyword';
+import Region from './search/region';
+import Newhome from './Newhome/Newhome';
+import Secondhome from './secondhome/Secondhome'
+import Rendhome from './rendhome/Rendhome'
+import Haozhuang from './haozhuang/Haozhuang'
+import Activity from './activity/Activity'
 import { TabBar } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css'
 import '../sass/page.scss'
@@ -67,9 +75,18 @@ class App extends Component{
 		});
 	}
     render(){
+    	let {match} = this.props;
+    	console.log("tabs",typeof(this.state.tabs))
         return <div className='box'> 
         <Switch>
 			<Route path='/home' component={Home}/>
+			<Route path="/keyword" component={Keyword} />
+			<Route  path='/region' component={Region}/>
+			<Route  path='/newhome' component={Newhome}/>
+			<Route  path='/secondhome' component={Secondhome}/>
+			<Route  path='/rendhome' component={Rendhome}/>
+			<Route  path='/haozhuang' component={Haozhuang}/>
+			<Route  path='/activity' component={Activity}/>
 			<Route path='/loan' component={Loan}/>
 			<Route path='/enjoy' component={Enjoy}/>
 			<Route path='/mine' component={Mine}/>
@@ -96,6 +113,6 @@ class App extends Component{
     }
 }
 //高阶组件
-//App=withRouter(App);
+App=withRouter(App);
 // 暴露接口
 export default App;

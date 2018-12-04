@@ -17,10 +17,19 @@
         flex: 1;
         height: 100%;
          line-height:lh(42);
-        select{
+        .select{
             border: none;
             margin-left: left(15);
             font-size: fs(12);
+            position: relative;
+            img{
+                width: w(10);
+                height: h(10);
+                position: absolute;
+                top: 17px;
+                right: 4px;
+            }
+            
         }
     }
     .rightBox{

@@ -4,7 +4,6 @@
     padding-left: left(15);
     padding-right: right(15);
     box-sizing: border-box;
-    overflow: visible;
     h2{
         padding-top: 25px;
         padding-bottom: 15px;
@@ -23,35 +22,53 @@
         padding-right: 10px;
         background-size: 6px auto;
     }
+    .ulBox{
+        width: 100%;
+        overflow-x: auto;
+       
+    }
+    //使用滚动条伪类来隐藏滚动条
+    .ulBox::-webkit-scrollbar {
+        display: none;
+      }
     ul{
-        width: w(1050);
-        height: auto;
-        display: flex;
-        overflow: visible;
-        transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-        transition-duration: 0ms;
-        transform: translate(0px, 0px) scale(1) translateZ(0px);
+        width: w(1100);
         li{
+           float: left;
             list-style: none;
-            flex: 1;
-            width: w(160);
-            height: h(141);
-            border-right: 1px solid #ddd;
+            margin-right: right(20);
+            width: w(160) ;
+            height: h(141) ;
+            margin-right: right(15);
+           
+            div{
+                width: 100%;
+                height: h(90);
+                border: 1px solid red;
+                 border-radius: 5px;
+                 margin-bottom: bottom(10);
+            }
         }
     }
     .newHome{
+        position:relative;
         height: h(201);
+        width: w(345);
         background: #fff;
-         overflow: hidden;
+       
     }
     .overseas{
+        position:relative;
          height: h(226);
-        background: #fff;
+         background: #fff;
+         overflow-x: auto;
          overflow: hidden;
     }
     .zufang{
+        position:relative;
          height: h(668);
-        background: #fff;
+         background: #fff;
+         overflow-x: auto;
          overflow: hidden;
     }
 }

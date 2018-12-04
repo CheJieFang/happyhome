@@ -20,16 +20,13 @@ export class Home extends Component{
 	componentWillMount(){
 		axios.post("api/mobile/userappHouseService/getNewsPageBannerAd?siteNo=wx_index_roll&cityId=756")
 		.then((res)=>{
-//			console.log(res.data.extend)
+			console.log('url',res)
 			this.setState({
 				imgUrl:res.data.extend
 			})
-			
-//			console.log(this.state.imgUrl)
 		})
 	}
 	render(){
-		
 		return <div>
 		<Header></Header>
 		<div className='container'>
@@ -43,6 +40,7 @@ export class Home extends Component{
 			{/*
 			  * {this.state.imgUrl.map(imgs => (
 				<img 
+				图片路径拼接
 			src={"https://img.xfj100.com/"+imgs.PhotoFile}
 			/>
 			))}	

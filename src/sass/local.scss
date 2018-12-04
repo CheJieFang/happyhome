@@ -1,0 +1,44 @@
+@import './vartital.scss';
+.search{
+    width: w(375);
+    height:h(44);
+    line-height: lh(48);
+    border-bottom: 1px solid #ddd;
+    padding-left: left(15);
+    padding-right: right(15);
+    box-sizing: border-box;
+    .searchInput{
+        width: w(270);
+        height: h(30);
+        float: left;
+        color:#ddd;
+        font-size: fs(13);
+        background: #f0f0f0;
+        margin-top: top(7);
+        border-radius: 20px;
+        padding-left: left(40);
+        box-sizing: border-box;
+        input{
+            border: none;
+            vertical-align: top;
+            height: h(28);
+            line-height: lh(28);
+            background: #f0f0f0;
+            position: relative;
+        }
+        img{
+            width: w(16);
+            height: h(16);
+            position: absolute;
+            left: left(28);
+            top: top(58);
+        }
+    }
+    .select{
+        float: right;
+        width: w(70);
+        height: h(44);
+        line-height: lh(44);
+        color:#000;
+    }
+}

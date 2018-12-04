@@ -26,14 +26,21 @@ class List extends Component{
 		return <div className='listBox'>
 			<div className='newHome'>
 			<h2><span>特惠新房</span><span className='cht_more'>更多></span></h2>
+			<div className="ulBox">
 			<ul>
-			<li>1</li>
-			<li>2</li>
+			<li>
+				<div><img src=""/></div>
+				<p>的狂欢节</p>
+				<p>看到几节课</p>
+			</li>
+			<li><div><img src=""/></div>
+				<p>的狂欢节</p>
+				<p>看到几节课</p></li>
 			<li>3</li>
 			<li>4</li>
 			<li>5</li>
-			<li>6</li>
 			</ul>
+			</div>
 			</div>
 			<div className='newHome'>
 			<h2><span>全国旅居</span><span className='cht_more'>更多></span></h2>
