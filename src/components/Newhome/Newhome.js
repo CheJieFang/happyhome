@@ -52,6 +52,7 @@ export class Newhome extends Component{
 		history.push(url);
 	}
 	render(){
+		
 		let {match} = this.props;
 		return <div>
 			<Tabs tabs={this.state.tabs}

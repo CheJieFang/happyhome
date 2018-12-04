@@ -3,7 +3,11 @@
     width: w(375);
     padding-left: left(15);
     padding-right: right(15);
+    margin-bottom:bottom(50);
     box-sizing: border-box;
+    .displaynone{
+        display: none;
+    }
     h2{
         padding-top: 25px;
         padding-bottom: 15px;
@@ -33,21 +37,37 @@
       }
     ul{
         width: w(1100);
+        .housedesc{
+               color: #757575;
+               font-weight: bold;
+               font-size: fs(13);
+               overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: lh(19);
+                height: h(19);
+           }
+           .houseprice{
+               color: #ff8833;
+               font-size: fs(12);
+           }
         li{
            float: left;
             list-style: none;
-            margin-right: right(20);
+            margin-right: right(8);
             width: w(160) ;
             height: h(141) ;
-            margin-right: right(15);
            
             div{
                 width: 100%;
                 height: h(90);
-                border: 1px solid red;
-                 border-radius: 5px;
-                 margin-bottom: bottom(10);
+                
             }
+             img{
+        display: inline-block;
+        width: w(160);
+        height: h(90);
+        border-radius: 8px;
+    }
         }
     }
     .newHome{
@@ -55,20 +75,29 @@
         height: h(201);
         width: w(345);
         background: #fff;
-       
+        margin-bottom: bottom(20);
+    }
+    .travalhome{
+        height: h(201);
+        
     }
     .overseas{
         position:relative;
          height: h(226);
          background: #fff;
-         overflow-x: auto;
-         overflow: hidden;
+         img{
+            width: w(345);
+            height: h(115);
+            margin-left: right(-10);
+            border-radius: 8px;
+        }
     }
     .zufang{
         position:relative;
-         height: h(668);
+         height: h(300);
          background: #fff;
          overflow-x: auto;
          overflow: hidden;
     }
 }
+

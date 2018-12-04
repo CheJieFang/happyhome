@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
 import {Route,Switch,withRouter} from 'react-router-dom';
 import '../../sass/Header.scss'
 export class Header extends Component{
@@ -29,13 +30,14 @@ export class Header extends Component{
         history.push(url);
 	}
 	componentDidMount(){
-		console.log('history',this.props);
+		
 	}
 	render(){
+//		console.log('header',this.props.currentCity)
 		return <div className='searchBox'>
 		<div className='leftBox'>
 			<div className='select' onClick={this.handerClick.bind(this)}>
-				<span>广州</span>
+				<span>{this.props.currentCity}</span>
 				<img src='http://weixin.xfj100.com/image/mobile/image/downdraw.png'></img>
 			</div>
 		</div>
@@ -43,12 +45,20 @@ export class Header extends Component{
 			<a>
 				<div className='searchInput'  onClick={this.keywordClick.bind(this)}>
 				<img src='http://weixin.xfj100.com/image/mobile/image/15.png' alt="" />
-					<input type="" name="" id="search" value="" placeholder="请输入关键字进行搜素"/>
+					<input type="" name="" id="search"  placeholder="请输入关键字进行搜素"/>
 				</div>
 			</a>
 		</div>
 	</div>
 	}
 }
+let mapStateToProps=state=>{
+//	console.log('tomaprop',state)
+	return {
+		currentCity:state.currentCity.currentCity
+	}
+	
+}
+Header=connect(mapStateToProps)(Header);
 Header=withRouter(Header);
 export default Header;

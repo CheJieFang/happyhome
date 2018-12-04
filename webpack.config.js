@@ -7,6 +7,7 @@ module.exports = {
 	//入口文件
 	entry:{
 		main:'./src/app.js',
+		
 	},
 
 	// 编译地址

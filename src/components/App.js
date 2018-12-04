@@ -61,7 +61,7 @@ class App extends Component{
 			currentTab:index
 		})
 		this.props.history.push(path)
-		console.log(this.props)
+//		console.log(this.props)
 	}
 	componentWillMount(){
 		let hash=window.location.hash.slice(1);
@@ -75,8 +75,9 @@ class App extends Component{
 		});
 	}
     render(){
+    	
     	let {match} = this.props;
-    	console.log("tabs",typeof(this.state.tabs))
+//  	console.log("tabs",typeof(this.state.tabs))
         return <div className='box'> 
         <Switch>
 			<Route path='/home' component={Home}/>
@@ -94,6 +95,7 @@ class App extends Component{
         <TabBar
         	tintColor="#f45815"
         	noRenderContent='true'
+        	hidden={!this.props.tabStatus}
         >
         	{
         		this.state.tabs.map((tab,index)=>{
@@ -112,6 +114,15 @@ class App extends Component{
           </TabBar> </div>
     }
 }
+let mapStateToProps=state=>{
+//	console.log('tomaprop',state)
+	return {
+		tabStatus:state.commonReducer.tabStatus,
+		currentCity:state.currentCity.currentCity,
+	}
+	
+}
+App=connect(mapStateToProps)(App);
 //高阶组件
 App=withRouter(App);
 // 暴露接口

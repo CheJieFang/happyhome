@@ -22,7 +22,7 @@ export class Local extends Component{
 			<div className='search'>
 				<div className='searchInput'>
 					<img src="http://weixin.xfj100.com/image/mobile/image/15.png"/>
-					 <input type="" name="" id="" value="" placeholder="请输入关键字进行搜素"/>
+					 <input type="" name="" id=""  placeholder="请输入关键字进行搜素"/>
 				</div>
 				<div className='select'>筛选</div>
 			</div>

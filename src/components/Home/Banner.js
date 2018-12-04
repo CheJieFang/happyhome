@@ -12,11 +12,11 @@ class Banner extends Component{
 	componentWillMount(){
 		axios.get('/api/mobile/userappHouseService/getNewsPageBannerAd?siteNo=wx_index_roll&cityId=756')
 		.then((res)=>{
-			console.log(res.data.extend)
+			
 			this.setState({
 				Banlist:res.data.extend
 			})
-			console.log(this.state.Banlist)
+			
 		})
 		
 	}

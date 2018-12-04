@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
 import '../../sass/region.scss'
 import axios from 'axios'
+import {city,tabbar} from '../../actions';
 class Region extends Component{
 	constructor(){
 		super();
@@ -32,27 +34,39 @@ class Region extends Component{
 				others:data[2].cityList
 			})
 		})
-		
+		 
+//		console.log("dispa",this.props);
+		 this.props.changetabStatus(false);
 	}
+	componentWillUnmount(){
+           this.props.changetabStatus(true);
+          
+    }
 	handlerClick(cityName,cityId){
 		this.setState({
 			currentCity:cityName,
 			currentIdx:cityId
 		})
-		
+		 this.props.changecity(cityName,cityId);
+//		console.log('fff',cityName)
+		//props.changecity方法存在
+		console.log('func',this.props.changecity)
+		this.props.history.push('/home')
 	}
 	gohomeClick(){
 		this.props.history.push('/home')
+		
 	}
 	componentDidMount(){
 		
 	}
 
 	render(){
+		
 		return <div>
 			<header>
 			<i onClick={this.gohomeClick.bind(this)}></i>
-			<h3>
+			<h3 className="h3">
 			所在城市-<span>{this.state.currentCity}</span>
 			</h3>
 			</header>
@@ -67,8 +81,8 @@ class Region extends Component{
 					<dt className="cityTitle">热门城市</dt>
 					
 					{
-						this.state.hotCity.map((city,cityId)=>{
-						return <dl className={this.state.currentIdx == cityId ? 'active' : ''} onClick={this.handlerClick.bind(this,city.cityName,cityId)}  key={cityId} >{city.cityName}</dl>
+						this.state.hotCity.map((city,index)=>{
+						return <dl className={this.state.currentIdx == index ? 'active' : ''} onClick={this.handlerClick.bind(this,city.cityName,city.cityId)}  key={index} >{city.cityName}</dl>
 						
 					})
 					}
@@ -79,8 +93,8 @@ class Region extends Component{
 				<dl className='overseas'>
 					<dt className="cityTitle">海外城市</dt>
 					{
-						this.state.overseas.map((city,cityId)=>{
-						return <dl className="cityItem"  key={cityId}>{city.cityName}</dl>
+						this.state.overseas.map((city,index)=>{
+						return <dl className="cityItem"  key={index}>{city.cityName}</dl>
 						
 					})
 					}
@@ -91,8 +105,8 @@ class Region extends Component{
 				<dl className='others'>
 					<dt className="cityTitle">其他城市</dt>
 					{
-						this.state.others.map((city,cityId)=>{
-						return <dl className="cityItem"  key={cityId}>{city.cityName}</dl>
+						this.state.others.map((city,index)=>{
+						return <dl className="cityItem"  key={index}>{city.cityName}</dl>
 						
 					})
 					}
@@ -102,4 +116,22 @@ class Region extends Component{
 	}
 	
 }
+let mapStateToProps=state=>{
+	console.log('fhh',state)
+	return {}
+}
+let mapDispatchToProps=dispatch=>{
+//	console.log('disp',dispatch)
+		return {
+					changetabStatus(status){
+					dispatch(tabbar(status));
+				},
+					changecity(cityName,cityId) {
+					dispatch(city.changecity(cityName,cityId));
+				}
+				
+		}
+	
+}
+Region=connect(mapStateToProps,mapDispatchToProps)(Region);
 export default Region;

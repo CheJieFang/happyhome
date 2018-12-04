@@ -20,7 +20,7 @@ export class Home extends Component{
 	componentWillMount(){
 		axios.post("api/mobile/userappHouseService/getNewsPageBannerAd?siteNo=wx_index_roll&cityId=756")
 		.then((res)=>{
-			console.log('url',res)
+			
 			this.setState({
 				imgUrl:res.data.extend
 			})
