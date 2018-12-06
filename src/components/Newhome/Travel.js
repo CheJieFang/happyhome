@@ -5,7 +5,13 @@ export class Travel extends Component{
 	constructor(){
 		super();
 		this.state={
-			houselist:[]
+			houselist:[],
+			houseInfo:[
+				{
+					title:'本地房产详情',
+					path:'/localHose'
+				}
+			]
 		}
 	}
 	componentWillMount(){
@@ -16,11 +22,19 @@ export class Travel extends Component{
 			})
 		})
 	}
+	handerClick(id){
+		let {history} = this.props;
+        let url = this.state.houseInfo[0].path;
+        history.push(url);
+        //用localStorage传id
+		localStorage.setItem('id',JSON.stringify(id));
+		
+	}
 	render(){
 		return <div>
 			<ul className='ulBox'>
 		 {this.state.houselist.map(houseDesc => (
-		 	<li className="houseLi" key={houseDesc.tuanId}>
+		 	<li className="houseLi" key={houseDesc.tuanId} onClick={this.handerClick.bind(this,houseDesc.projectId)}>
 			<div className='img'>
 				<img src={"https://img.xfj100.com/"+houseDesc.mainImage}/>
 			</div>

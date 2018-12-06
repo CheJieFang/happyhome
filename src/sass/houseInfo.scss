@@ -1,0 +1,175 @@
+@import './vartital.scss';
+*{
+    padding: 0;
+    margin: 0;
+}
+.infoBox{
+    background: #ddd;
+    height: auto;
+    .infoSwiper{
+    width: w(375);
+    height: h(215);
+    position: relative;
+    background: skyblue;
+    img{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: w(375);
+        height: h(215);
+    }
+}
+.infoTitle{
+    height: h(191);
+    width: w(351);
+    background: #fff;
+    margin-left: left(12);
+    
+    h1{
+        height: h(51);
+        line-height: lh(51);
+        text-align: center;
+        color: #f18300;
+        font-size: fs(18);
+    }
+    p{
+        width: w(321);
+        height: h(64);
+        line-height: lh(64);
+        background: orange;
+        margin-left: left(13);
+        color: #fff;
+        padding-left: left(20);
+        padding-right: right(20);
+        box-sizing: border-box;
+        text-align: center;
+    }
+    div{
+        width: w(321);
+        height: h(34);
+        line-height: lh(34);
+        margin-top: top(10);
+        font-size: fs(12);
+        color: #ddd;
+        .leftBox{
+            display: inline-block;
+            float: left;
+            width: w(238);
+            height: h(19);
+            padding-left: left(10);
+            box-sizing: border-box;
+        }
+       .rightBox{
+           display: inline-block;
+           float: right;
+           width: w(82);
+           height: h(19);
+       }
+    }
+    
+}
+
+.houseBox{
+        width: w(375);
+        height: h(245);
+        background: #fff;
+        margin-top: top(20);
+        padding-left: left(15);
+        box-sizing: border-box;
+        overflow: hidden;
+        h3{
+           height: h(345);
+           height: h(52);
+           line-height: lh(52); 
+           color: #000;
+           span{
+            float: right;
+            color: #999999;
+            font-size: 14px;
+            height: 20px;
+            padding: 15px 15px;
+            line-height: 20px;
+            padding-right: 10px;
+            background-size: 6px auto;
+           }
+        }
+        .houseTypeleft{
+            float: left;
+            width: w(173);
+            height: h(182);
+            padding-left: left(15);
+            box-sizing: border-box;
+            margin-bottom: bottom(20);
+            img{
+                width: w(100);
+                height: h(121);
+            }
+        }
+        .houseType{
+            font-size: fs(12);
+            color: #333;
+            height: h(20);
+        }
+        .housePrice{
+            font-size: fs(12);
+            color: orange;
+            height: h(20);
+        }
+    }
+    .daohang{
+        width: w(375);
+        height: h(357);
+        background: #fff;
+        
+        box-sizing: border-box;
+       h3{
+           height: h(345);
+           height: h(52);
+           line-height: lh(52); 
+           color: #000;
+           padding-left: left(15);
+           span{
+            float: right;
+            color: #999999;
+            font-size: 14px;
+            height: 20px;
+            padding: 15px 15px;
+            line-height: 20px;
+            padding-right: 10px;
+            background-size: 6px auto;
+           }
+        }
+        .img{
+            width: w(345);
+            height: h(290);
+            background: #fff;
+            position: relative;
+            img{
+                width: w(345);
+                height: h(190);
+                margin-right: left(7);
+                position: absolute;
+                left: left(15);
+                top: top(0);
+            }
+        }
+    }
+    .toRegin{
+        width: w(375);
+        height: h(60);
+        line-height: lh(60);
+        font-size: fs(14);
+        text-align: center;
+        background: orange;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        a{
+            color: #fff;
+        }
+    }
+    
+}
+

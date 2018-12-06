@@ -3,27 +3,26 @@
     width: w(375);
     padding-left: left(15);
     padding-right: right(15);
-    margin-bottom:bottom(50);
     box-sizing: border-box;
     .displaynone{
         display: none;
     }
     h2{
-        padding-top: 25px;
-        padding-bottom: 15px;
-        font-size: 20px;
+        padding-top: top(25);
+        padding-bottom: bottom(15);
+        font-size: fs(20);
         font-weight: 400;
         color: #333;
-        line-height: 20px;
+        line-height: lh(20);
     }
     .cht_more{
         float: right;
         color: #999999;
-        font-size: 14px;
-        height: 20px;
+        font-size: fs(14);
+        height: h(20);
         padding: 0 15px;
-        line-height: 20px;
-        padding-right: 10px;
+        line-height: lh(20);
+        padding-right: right(10);
         background-size: 6px auto;
     }
     .ulBox{
@@ -77,9 +76,26 @@
         background: #fff;
         margin-bottom: bottom(20);
     }
+    .img{
+            position: relative;
+            span{
+                position: absolute;
+                left: left(6);
+                bottom: bottom(5);
+                display: inline-block;
+                width: w(42);
+                height: h(22);
+                line-height: lh(22);
+                color: #fff;
+                font-size: fs(12);
+                background: rgba(0, 0, 0, 0.6);
+                text-align: center;
+                border-radius: top(5);
+                
+            }
+        }
     .travalhome{
         height: h(201);
-        
     }
     .overseas{
         position:relative;
@@ -94,10 +110,48 @@
     }
     .zufang{
         position:relative;
-         height: h(300);
+         height: h(201);
          background: #fff;
          overflow-x: auto;
          overflow: hidden;
+    }
+    .houseZixun{
+        ul{
+            height: h(176);
+        }
+        height: h(300);
+        width: w(375);
+        .houseLi{
+            list-style: none;
+            float: none;
+            width: w(350);
+            height: h(80);
+            .zixunimg{
+                 width: w(90);
+                 height: h(68);
+                 float: left;
+                img{
+                    width: w(90);
+                    height: h(68);
+                    background: #fff;
+                    margin-top: top(6);
+                }
+            }
+            .zixundesc{
+                width: w(240);
+                height: h(68);
+                float: right;
+                margin-top: top(10);
+                font-size: fs(14);
+                .houseTitle{
+                    color: #757575;
+                    height: h(40);
+                }
+                .zixunTime{
+                    color: #ddd;
+                }
+            }
+        }
     }
 }
 

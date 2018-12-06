@@ -33,11 +33,19 @@ export class Header extends Component{
 		
 	}
 	render(){
-//		console.log('header',this.props.currentCity)
+		console.log('header',this.props.currentCity)
+		var list = {};
+		var arr = this.props.currentCity;
+		for (var key in arr) {
+		    list[key] = arr[key];
+		}
+		var cityName=list[0].length<=1?"广州":list[0]
+		
+		console.log(cityName)
 		return <div className='searchBox'>
 		<div className='leftBox'>
 			<div className='select' onClick={this.handerClick.bind(this)}>
-				<span>{this.props.currentCity}</span>
+				<span>{cityName}</span>
 				<img src='http://weixin.xfj100.com/image/mobile/image/downdraw.png'></img>
 			</div>
 		</div>

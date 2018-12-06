@@ -6,6 +6,7 @@ class List extends Component{
 	constructor(){
 		super();
 		this.state={
+			consultation:[],
 			esfHouse:[],
 			newHome:[],
 			overSeas:[],
@@ -22,31 +23,38 @@ class List extends Component{
 		var cityId=list[1].length<=1?20:list[1]
 		axios.get("api/mobile/userappHouseService/userIndex?showIndex=1&cityId="+cityId)
 		.then((res)=>{
-			
+			console.log('res',res.data.extend.consultation)
 			let rentHouse = [];
+			let consultation=[];
 			if(res.data.extend.rentHouse){
 				rentHouse = res.data.extend.rentHouse
+				
+			}
+			if(res.data.extend.consultation){
+				consultation=res.data.extend.consultation
 			}
 			this.setState({
+				consultation,
 				esfHouse:res.data.extend.esfHouse,
 				newHome:res.data.extend.projectLabelList[0].projectList,
 				overSeas:res.data.extend.projectLabelList[1].projectList,
 				rendHome:res.data.extend.projectLabelList[2].projectList,
 				rentHouse
 			})
-			console.log('ppp',this.state.rentHouse)
+			console.log('ppp',this.state.consultation)
 			
 		})
+		
+		
 	}
+	
 	render(){
 		console.log('state',this.state)
 		let {newHome}=this.state;
 		let {overSeas}=this.state;
-		let {rendHome}=this.state;
-//		let {rentHouse}=this.state;
-		console.log("rentHouse78",this.state.rentHouse)
-		console.log("overSeas",overSeas)
-		console.log('len',overSeas.length);
+		let {rendHome}=this.state
+		let len=this.state.rentHouse.length
+		console.log('len',this.state.consultation);
 		return <div className='listBox'>
 			<div className={newHome == 0 ? 'displaynone' : 'newHome'}>
 			<h2><span>特惠新房</span><span className='cht_more'>更多></span></h2>
@@ -55,7 +63,7 @@ class List extends Component{
 				{
 					newHome.map((home,index)=>{
 						return <li key={index}>
-						<div><img src={"https://img.xfj100.com/"+home.mainImage}/></div>
+						<div className='img'> <img src={"https://img.xfj100.com/"+home.mainImage}/> <span>{home.cityName}</span> </div>
 						<p className='housedesc'>{home.projectName}</p>
 						<p className='houseprice'>{home.avgPrice}元/㎡</p>
 					</li>
@@ -72,7 +80,7 @@ class List extends Component{
 					
 					overSeas.map((home,index)=>{
 						return <li key={index}>
-						<div><img src={"https://img.xfj100.com/"+home.mainImage}/></div>
+						<div className='img'><img src={"https://img.xfj100.com/"+home.mainImage}/><span>{home.areaName}</span></div>
 						<p className='housedesc'>{home.projectName}</p>
 						<p className='houseprice'>{home.avgPrice}元/㎡</p>
 					</li>
@@ -89,7 +97,7 @@ class List extends Component{
 					
 					this.state.rendHome.map((home,index)=>{
 						return <div key={index}>
-						<div><img src={"https://img.xfj100.com/"+home.mainImage}/></div>
+						<div className='img'><img src={"https://img.xfj100.com/"+home.mainImage}/><span>{home.areaName}</span></div>
 						<p className='housedesc'>{home.projectName}</p>
 						<p className='houseprice'>{home.tuanAbout}</p>
 					</div>
@@ -98,7 +106,7 @@ class List extends Component{
 			</ul>
 			</div>
 			</div>
-			<div className={newHome == 0 ? 'displaynone' : 'zufang'}>
+			<div className={len == 0 ? 'displaynone' : 'zufang'}>
 			<h2><span>精选租房</span><span className='cht_more'>更多></span></h2>
 			<div className="ulBox">
 			<ul>
@@ -115,7 +123,37 @@ class List extends Component{
 			</ul>
 			</div>
 			</div>
+			
+			<div className='houseZixun'>
+			<h2><span>全国咨询</span><span className='cht_more'>更多></span></h2>
+			<div>
+			<ul>
+			{
+				this.state.consultation.map((item,index)=>{
+					return <li className="houseLi" key={index}>
+					<div className='zixunimg'>
+						<img src={"https://img.xfj100.com/"+item.photoFile}/>
+					</div>
+					<div className='zixundesc'>
+							<p className='houseTitle'>{item.title}</p>
+						
+						<p className='zixunTime'>{item.publishTime}</p>
+					</div>
+				</li>
+				})
+			
+			}
+			</ul>
+			</div>
+			</div>
+		
+			
 		</div>
+		
+		
+		
+		
+		
 	}
 }
 let mapStateToProps=state=>{

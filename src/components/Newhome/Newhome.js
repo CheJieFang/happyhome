@@ -32,12 +32,21 @@ export class Newhome extends Component{
 	}
 	componentWillMount(){
 		console.log('ddd',window.location.hash);
-		let hash=window.location.hash.slice(9);
+		let hash=window.location.hash.slice(1);
+		console.log('hhh',hash)
 		let {history}=this.props;
 		let currentTab;
+		
 		this.state.tabs.some((item,index)=>{
-			currentTab=index;
+			if(hash=='/newhome'){
+				window.location.hash ='#/newhome/local'
+				currentTab=0;
+				return item.path===hash
+			}else{
+				currentTab=index;
 			return item.path===hash
+			}
+			
 		});
 		this.setState({
 	     currentTab:currentTab

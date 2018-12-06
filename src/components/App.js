@@ -12,6 +12,7 @@ import Secondhome from './secondhome/Secondhome'
 import Rendhome from './rendhome/Rendhome'
 import Haozhuang from './haozhuang/Haozhuang'
 import Activity from './activity/Activity'
+import Localnewhouse from'./houseInfo/localNewHouseInfo'
 import { TabBar } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css'
 import '../sass/page.scss'
@@ -84,6 +85,7 @@ class App extends Component{
 			<Route path="/keyword" component={Keyword} />
 			<Route  path='/region' component={Region}/>
 			<Route  path='/newhome' component={Newhome}/>
+			<Route  path='/localHose' component={Localnewhouse}/>
 			<Route  path='/secondhome' component={Secondhome}/>
 			<Route  path='/rendhome' component={Rendhome}/>
 			<Route  path='/haozhuang' component={Haozhuang}/>

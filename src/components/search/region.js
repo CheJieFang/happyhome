@@ -48,7 +48,6 @@ class Region extends Component{
 			currentIdx:cityId
 		})
 		 this.props.changecity(cityName,cityId);
-//		console.log('fff',cityName)
 		//props.changecity方法存在
 		console.log('func',this.props.changecity)
 		this.props.history.push('/home')
@@ -57,10 +56,6 @@ class Region extends Component{
 		this.props.history.push('/home')
 		
 	}
-	componentDidMount(){
-		
-	}
-
 	render(){
 		
 		return <div>
@@ -121,7 +116,6 @@ let mapStateToProps=state=>{
 	return {}
 }
 let mapDispatchToProps=dispatch=>{
-//	console.log('disp',dispatch)
 		return {
 					changetabStatus(status){
 					dispatch(tabbar(status));
