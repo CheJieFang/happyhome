@@ -5,6 +5,7 @@ import Home from './Home';
 import Enjoy from './Enjoy';
 import Loan from './Loan';
 import Mine from './Mine';
+import Login from './login';
 import Keyword from './search/keyword';
 import Region from './search/region';
 import Newhome from './Newhome/Newhome';
@@ -16,15 +17,15 @@ import Localnewhouse from'./houseInfo/localNewHouseInfo'
 import { TabBar } from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css'
 import '../sass/page.scss'
-
+import axios from 'axios'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome,faCommentDots,faChevronCircleUp,faScroll,faUser} from '@fortawesome/free-solid-svg-icons'
-
+axios.defaults.baseURL="http://localhost:9999"
 library.add(faHome,faCommentDots,faChevronCircleUp,faScroll,faUser)
 class App extends Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state={
 			tabs:[
 				{
@@ -44,7 +45,7 @@ class App extends Component{
 				},
 				{
 					title:'看房',
-					path:'/mine',
+					path:'/newhome/local',
 					icon:'scroll'
 				},
 				{
@@ -65,6 +66,7 @@ class App extends Component{
 //		console.log(this.props)
 	}
 	componentWillMount(){
+		console.log('ww',this.props)
 		let hash=window.location.hash.slice(1);
 		let currentTab=0
 		this.state.tabs.some((item,index)=>{
@@ -75,8 +77,11 @@ class App extends Component{
 			currentTab
 		});
 	}
+//	shouldComponentUpdate(props){
+//		console.log('www',this.props)
+//		return this.props.history.action=='PUSH'
+//	}
     render(){
-    	
     	let {match} = this.props;
 //  	console.log("tabs",typeof(this.state.tabs))
         return <div className='box'> 
@@ -93,6 +98,7 @@ class App extends Component{
 			<Route path='/loan' component={Loan}/>
 			<Route path='/enjoy' component={Enjoy}/>
 			<Route path='/mine' component={Mine}/>
+			<Route path='/login' component={Login}/>
 		</Switch>
         <TabBar
         	tintColor="#f45815"

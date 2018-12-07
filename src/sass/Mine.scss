@@ -1,0 +1,46 @@
+@import './vartital.scss';
+.Mine{
+    height: h(600);
+    width: w(375);
+    background: #ddd;
+    .usInfo{
+        height: h(160);
+        width: w(375);
+        background: #fff;
+        text-align: center;
+        img{
+            margin-top: top(30);
+            height: h(80);
+            width: w(80);
+        }
+    }
+}
+.mylist{
+  
+    width: w(375);
+    height: auto;
+    padding-left: left(10);
+    padding-right: left(15);
+    box-sizing: border-box;
+    background: #fff;
+    li{
+        position: relative;
+        padding-left: left(40);
+        box-sizing: border-box;
+        height: h(50);
+        line-height: lh(50);
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        span{
+            float: right;
+            font-size: fs(18);
+        }
+        img{
+            position: absolute;
+            left: left(4);
+            top: top(9);
+            width: w(25);
+            height: h(25);
+        }
+    }
+}

@@ -17,10 +17,12 @@ export class Local extends Component{
 				}
 			],
 			cityId:'',
-			pageNum:1
+			pageNum:1,
+			status:false
 		}
 		
 		this.handleScroll=this.handleScroll.bind(this);
+		this.toTopClick=this.toTopClick.bind(this);
 	}
 	
 	componentWillMount(){
@@ -46,19 +48,30 @@ export class Local extends Component{
 		
 	}
 	 componentDidMount(){
-    	window.addEventListener('scroll', this.handleScroll);	
+	 	//监听滚动条监听
+    	window.addEventListener('scroll', this.handleScroll,false);	
 	  }
 	     
 	  handleScroll(){
 	  	//滚动条距离
 //	    console.log('滚动条距离',window.scrollY);
 	    var scrolltop=window.scrollY;
+	    
 	    //文档的高度
 //	    console.log('文档的高',document.documentElement.scrollHeight);
 	    var documentHeight=document.documentElement.scrollHeight;
 	    //可视区域的高度
 //	    console.log('可是区域的高',document.documentElement.clientHeight);
 	    var clientHeight=document.documentElement.clientHeight;
+	    if(scrolltop>100){
+	    	this.setState({
+	    		status:true
+	    	})
+	    }else{
+	    	this.setState({
+	    		status:false
+	    	})
+	    }
 	    if((documentHeight-clientHeight-scrolltop)<1){
 	    	var pageNum=this.state.pageNum;
 	    	var cityId=this.state.cityId;
@@ -84,8 +97,20 @@ export class Local extends Component{
 		localStorage.setItem('id',JSON.stringify(id));
 		
 	}
+	toTopClick(){
+		//减速运动回到顶部
+		clearInterval(timer);
+		var timer=setInterval(function(){
+			var target=document.documentElement.scrollTop;
+			console.log(document.documentElement.scrolltop)
+			target-=Math.ceil(target/10);
+			window.scrollTo(0,target);
+			if(target==0){
+				clearInterval(timer);
+			}
+		},10)
+	}
 	render(){
-		let index=0;
 		return <div className='scroll-body'>
 			<div className='search'>
 				<div className='searchInput'>
@@ -112,6 +137,8 @@ export class Local extends Component{
 		 ))}
 			
 		</ul>
+		
+		<div className={this.state.status==true ? 'goToTop' : 'displaynone'} onClick={this.toTopClick.bind(this)}></div>
 		</div>
 	}
 }

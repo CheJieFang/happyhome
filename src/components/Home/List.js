@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios'
 import {connect} from 'react-redux';
+import {Route,Switch,withRouter} from 'react-router-dom';
 import '../../sass/list.scss'
 class List extends Component{
 	constructor(){
@@ -13,6 +14,9 @@ class List extends Component{
 			rendHome:[],
 			rentHouse:[]
 		}
+//		this.newHomeClick()=this.newHomeClick.bind(this)
+//		this.travalClick()=this.travalClick.bind(this)
+//		this.overseasClick()=this.overseasClick.bind(this)
 	}
 	componentWillMount(){
 		var list = {};
@@ -21,7 +25,7 @@ class List extends Component{
 		    list[key] = arr[key];
 		}
 		var cityId=list[1].length<=1?20:list[1]
-		axios.get("api/mobile/userappHouseService/userIndex?showIndex=1&cityId="+cityId)
+		axios.get("/api/mobile/userappHouseService/userIndex?showIndex=1&cityId="+cityId)
 		.then((res)=>{
 			console.log('res',res.data.extend.consultation)
 			let rentHouse = [];
@@ -44,12 +48,16 @@ class List extends Component{
 			console.log('ppp',this.state.consultation)
 			
 		})
-		
-		
+		//全国咨询接口
+		//http://weixin.xfj100.com/api/mobile/userappHouseService/getNews?cityId=0&column=3&pageNum=1
 	}
-	
+	newHomeClick(path){
+		console.log('newhomemore',this.props)
+		this.props.history.push(path)
+	}
+
 	render(){
-		console.log('state',this.state)
+		console.log('state',this.props)
 		let {newHome}=this.state;
 		let {overSeas}=this.state;
 		let {rendHome}=this.state
@@ -57,7 +65,7 @@ class List extends Component{
 		console.log('len',this.state.consultation);
 		return <div className='listBox'>
 			<div className={newHome == 0 ? 'displaynone' : 'newHome'}>
-			<h2><span>特惠新房</span><span className='cht_more'>更多></span></h2>
+			<h2><span>特惠新房</span><span className='cht_more' onClick={this.newHomeClick.bind(this,'/newhome/local')}>更多></span></h2>
 			<div className="ulBox">
 			<ul>
 				{
@@ -73,7 +81,7 @@ class List extends Component{
 			</div>
 			</div>
 			<div className='travalhome'>
-			<h2><span>全国旅居</span><span className='cht_more'>更多></span></h2>
+			<h2><span>全国旅居</span><span className='cht_more' onClick={this.newHomeClick.bind(this,'/newhome/travel')}>更多></span></h2>
 			<div className="ulBox">
 			<ul>
 				{
@@ -90,7 +98,7 @@ class List extends Component{
 			</div>
 			</div>
 			<div className='overseas'>
-			<h2><span>海外置业</span><span className='cht_more'>更多></span></h2>
+			<h2><span>海外置业</span><span className='cht_more' onClick={this.newHomeClick.bind(this,'/newhome/overseas')}>更多></span></h2>
 			<div>
 			<ul>
 				{
@@ -162,5 +170,7 @@ let mapStateToProps=state=>{
 	}
 	
 }
+List=withRouter(List);
 List=connect(mapStateToProps)(List);
+
 export default List;

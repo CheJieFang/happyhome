@@ -1,0 +1,70 @@
+@import './vartital.scss';
+.regin{
+    position: relative;
+    img{
+        width: w(375);
+    }
+    .home{
+        height: h(30);
+        width: w(30);
+        background: #fff;
+        position: absolute;
+        left: left(5);
+        top: top(10);
+        border-radius: 50%;
+        text-align: center;
+        line-height: lh(30);
+       .gohome{
+        height: h(14);
+        width: w(14);
+       
+    } 
+    }
+    
+}
+.reginBox{
+    height: h(150);
+    width: w(315);
+    margin-left: left(30);
+    .usname{
+        height: h(75);
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+    }
+    .uspass{
+        height: h(75);
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+    }
+    input{
+        border: none;
+        vertical-align: bottom;
+        height: h(75);
+        width: 100%;
+    }
+}
+.reginBtn{
+    height: h(50);
+    line-height: lh(50);
+    width: w(315);
+    background: orange;
+    margin-left: left(30);
+     text-align: center;
+     color: #fff;
+     margin-top:top(20);
+     border-radius: 5px;
+}
+.others{
+    width: w(260);
+    height: h(30);
+    line-height: lh(30);
+    .zhuce{
+        float: left;
+        color: #757575;
+    }
+    .wjmm{
+        float: right;
+         color: #757575;
+    }
+}
+

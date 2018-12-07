@@ -1,0 +1,72 @@
+@import './vartital.scss';
+.searchBox{
+    width: w(375);
+    height: h(50);
+    line-height: lh(50);
+    padding-left: left(20);
+    box-sizing: border-box;
+    .keywordBox{
+        position: relative;
+        select{
+            position: absolute;
+            left: 0;
+            top: top(13);
+            background: #efeff5;
+            margin-left: left(5);
+        }
+    }
+    input{
+        height: h(33);
+        width: w(280);
+        background: #efeff5;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        
+    }
+    .cancel{
+        color: #d1d1d1;
+        font-size: fs(16);
+        margin-left: left(10);
+        letter-spacing:left(5);
+    }
+}
+.searchContent{
+    margin-top: top(50);
+    width: w(375);
+    height: auto;
+    padding-left: left(20);
+    padding-right: right(20);
+    box-sizing: border-box;
+     span{
+                display: inline-block;
+                height: h(33);
+                line-height: lh(33);
+                text-align: center;
+                background: #efeff5;
+                border-radius: 5px;
+                margin-right: right(20);
+                margin-bottom: bottom(15);
+                padding-left: left(8);
+                padding-right: right(8);
+                font-size: fs(12);
+                color: #666;
+            }
+            p{
+            height: h(30);
+            line-height: lh(30);
+            font-size: fs(16);
+            color: #757575;
+        }
+    .historySearch{
+        margin-top: top(20);
+        .historyContent{
+            height: auto;
+        }
+        
+    }
+    .hotSearch{
+        height: auto;
+        
+    }
+}

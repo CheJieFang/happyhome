@@ -18,10 +18,10 @@ class Region extends Component{
 		axios.get("/app/ic.asp")
 		.then((res)=>{
 			let ip=res.data.split("[")[1].split("]")[0]
-//			console.log(ip)
-//			console.log(typeof(ip))
+			console.log(ip)
+			console.log(typeof(ip))
 			axios.get("/city/service/getIpInfo.php?ip="+ip).then((res)=>{
-//				console.log("ipcity",res)
+				console.log("ipcity",res)
 			})
 		})
 		
@@ -49,7 +49,7 @@ class Region extends Component{
 		})
 		 this.props.changecity(cityName,cityId);
 		//props.changecity方法存在
-		console.log('func',this.props.changecity)
+		console.log('func',this.props)
 		this.props.history.push('/home')
 	}
 	gohomeClick(){
