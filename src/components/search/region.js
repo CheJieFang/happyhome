@@ -15,15 +15,15 @@ class Region extends Component{
 		}
 	}
 	componentWillMount () {
-		axios.get("/app/ic.asp")
-		.then((res)=>{
-			let ip=res.data.split("[")[1].split("]")[0]
-			console.log(ip)
-			console.log(typeof(ip))
-			axios.get("/city/service/getIpInfo.php?ip="+ip).then((res)=>{
-				console.log("ipcity",res)
-			})
-		})
+//		axios.get("/app/ic.asp")
+//		.then((res)=>{
+//			let ip=res.data.split("[")[1].split("]")[0]
+//			console.log(ip)
+//			console.log(typeof(ip))
+//			axios.get("/city/service/getIpInfo.php?ip="+ip).then((res)=>{
+//				console.log("ipcity",res)
+//			})
+//		})
 		
 		axios.get("/api/mobile/projectService/getCityListV3?language=CHS")
 		.then((res)=>{

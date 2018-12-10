@@ -24,28 +24,31 @@ class Login extends Component{
 	}
 	loginClick(){
 		let arr=[];
-	let usname=document.querySelector("#usname");
-	let uspass=document.querySelector("#uspass");
-	let user=JSON.parse(localStorage.getItem('usname'));
-	let pass=JSON.parse(localStorage.getItem('uspass'));
-	if(usname.value==user){
-		arr.push(true)
-	}else{
-		alert('用户名错误')
-	}
-	if(uspass.value==pass){
-		arr.push(true)
-	}else{
-		alert('密码错误！')
-	}
-	if(arr[0]==arr[1]==true){
-		alert('登录成功');
-		this.props.changelogStatus(true);
-		this.props.history.push('/mine');
-	}
+		let usname=document.querySelector("#usname");
+		let uspass=document.querySelector("#uspass");
+		var reg = /^1[345789]\d{9}$/;
+            if (reg.test(usname.value)){
+               localStorage.setItem('usname',JSON.stringify(usname.value));
+               arr.push(true);
+            }else{
+                alert('请输入正确的手机号')
+            }
+            var reg1=/^[0-9A-Za-z]{6,}$/;
+            if(reg1.test(uspass.value)){
+            	localStorage.setItem('uspass',JSON.stringify(uspass.value));
+            	arr.push(true);
+            	console.log(arr)
+            }else{
+            	alert('请输入6位以上的密码')
+            }
+            if(arr[0]==arr[1]==true){
+            	alert('注册成功！')
+				this.props.history.push('/login');
+            }
+		
 	}
 	reginClick(){
-		this.props.history.push('/regin')
+//		
 
 	}
 	render(){
@@ -59,16 +62,13 @@ class Login extends Component{
 			<input type="" name="" id="usname"  placeholder="请输入用户名"/>
 		</div>
 		<div className='uspass'>
-			<input type="passwword" name="" id="uspass"  placeholder="请输入密码"/>
+			<input type="password" name="" id="uspass"  placeholder="请输入密码"/>
 		</div>
 		</div>
 		<div className='reginBtn' onClick={this.loginClick.bind(this)}>
-			<a>登录</a>
+			<a>注册</a>
 		</div>
-		<div className='others'>
-		<span className='zhuce' onClick={this.reginClick.bind(this)}>立即注册?</span>
-		<span className='wjmm'>忘记密码?</span>
-		</div>
+		
 	</div>
 	}
 	

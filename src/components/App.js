@@ -6,8 +6,10 @@ import Enjoy from './Enjoy';
 import Loan from './Loan';
 import Mine from './Mine';
 import Login from './login';
+import Regin from './regin'
 import Keyword from './search/keyword';
 import Region from './search/region';
+import Search from './search/search';
 import Newhome from './Newhome/Newhome';
 import Secondhome from './secondhome/Secondhome'
 import Rendhome from './rendhome/Rendhome'
@@ -89,6 +91,7 @@ class App extends Component{
 			<Route path='/home' component={Home}/>
 			<Route path="/keyword" component={Keyword} />
 			<Route  path='/region' component={Region}/>
+			<Route  path='/search' component={Search}/>
 			<Route  path='/newhome' component={Newhome}/>
 			<Route  path='/localHose' component={Localnewhouse}/>
 			<Route  path='/secondhome' component={Secondhome}/>
@@ -99,6 +102,7 @@ class App extends Component{
 			<Route path='/enjoy' component={Enjoy}/>
 			<Route path='/mine' component={Mine}/>
 			<Route path='/login' component={Login}/>
+			<Route path='/regin' component={Regin}/>
 		</Switch>
         <TabBar
         	tintColor="#f45815"

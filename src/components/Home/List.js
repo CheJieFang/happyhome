@@ -27,7 +27,7 @@ class List extends Component{
 		var cityId=list[1].length<=1?20:list[1]
 		axios.get("/api/mobile/userappHouseService/userIndex?showIndex=1&cityId="+cityId)
 		.then((res)=>{
-			console.log('res',res.data.extend.consultation)
+			console.log('res',res.data.extend)
 			let rentHouse = [];
 			let consultation=[];
 			if(res.data.extend.rentHouse){
@@ -57,7 +57,7 @@ class List extends Component{
 	}
 
 	render(){
-		console.log('state',this.props)
+		console.log('state',this.state)
 		let {newHome}=this.state;
 		let {overSeas}=this.state;
 		let {rendHome}=this.state

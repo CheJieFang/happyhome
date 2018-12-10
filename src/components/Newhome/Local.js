@@ -18,15 +18,15 @@ export class Local extends Component{
 			],
 			cityId:'',
 			pageNum:1,
-			status:false
+			status:false,
+			mykeys:false
 		}
-		
 		this.handleScroll=this.handleScroll.bind(this);
 		this.toTopClick=this.toTopClick.bind(this);
 	}
-	
 	componentWillMount(){
-		console.log("paops",this.props.currentCity)
+		let data=JSON.parse(localStorage.getItem('selected'));
+		data=encodeURI(data);
 		var list = {};
 		var arr = this.props.currentCity;
 		for (var key in arr) {
@@ -37,14 +37,31 @@ export class Local extends Component{
 			cityId:cityId
 		})
 		var pageNum=this.state.pageNum;
-		console.log('999',pageNum);
-		axios.get("/api/mobile/userappHouseService/getHotNewHouse?priceHigh=999999&cityId="+cityId+"&pageNum="+pageNum)
-		.then((res)=>{
+			axios.get("/api/mobile/userappHouseService/getHotNewHouse?priceHigh=999999&cityId="+cityId+"&pageNum="+pageNum)
+			.then((res)=>{
+				console.log('yuan',res.data.extend.sources)
 			this.setState({
 				houselist:res.data.extend.sources,
-				
 			})
 		})
+//		if(data){
+//			axios.get("/api/mobile/userappHouseService/getHotNewHouse?priceHigh=999999&cityId=756&pageNum=1&keyWord="+data)
+//			.then((res)=>{
+//				var len=res.data.extend.sources.length;
+//				console.log('key',res.data.extend.sources)
+//				if(len>0){
+//					this.setState({
+//						mykeys:true,
+//						houselist:res.data.extend.sources
+//					
+//				})
+////					localStorage.removeItem('selected');
+//				}
+//			})
+//		}
+		
+		
+	
 		
 	}
 	 componentDidMount(){
@@ -111,6 +128,7 @@ export class Local extends Component{
 		},10)
 	}
 	render(){
+		console.log('rrr',this.state.houselist)
 		return <div className='scroll-body'>
 			<div className='search'>
 				<div className='searchInput'>

@@ -9,7 +9,6 @@ class Keyword extends Component{
 		}
 	}
 	componentWillMount(){
-		
 		axios.get("/api/mobile/userappHouseService/getHotNewHouse?cityId=756&pageNum=1&rowsDisplayed=10")
 		.then((res)=>{
 			this.setState({
@@ -26,15 +25,8 @@ class Keyword extends Component{
 		localStorage.clear();
 		console.log(selected)
 		//把选中的存到localStore
-		localStorage.setItem('selected',JSON.stringify(selected))
-		let data=JSON.parse(localStorage.getItem('selected'))
-		data=encodeURI(selected);
-		console.log('转码后',data);
-		//关键字查询
-		axios.get("/api/mobile/userappEsfService/getEsfList?cityId=756&keyWord="+data+"&pageNum=1&rowsDisplayed=10")
-		.then((res)=>{
-			console.log('查询结果',res)
-		})
+		localStorage.setItem('selected',JSON.stringify(selected));
+		this.props.history.push('/search');
 	}
 	render(){
 		return <div>
@@ -52,7 +44,7 @@ class Keyword extends Component{
 			<div className='historySearch'>
 			<p>历史搜索</p>
 			<div className='historyContent'>
-				<span>1111111111</span>
+				<span>时代倾城</span>
 			</div>
 			<p>清除历史记录</p>
 			</div>
